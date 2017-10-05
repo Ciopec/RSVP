@@ -18,6 +18,10 @@ form.addEventListener('submit',(e) => {
 });
 
 ul.addEventListener('change', (e) => {
-    console.log(e.target.checked);
+    const checkbox = e.target;
+    const listItem = checkbox.parentNode.parentNode;
+    if(checkbox.checked)
+        listItem.className = 'responded';
+        else listItem.className = '';
 
 });
