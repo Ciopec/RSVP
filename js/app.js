@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', () => {
 const form = document.getElementById('registrar');
 const input = form.querySelector('input');
 
@@ -96,4 +97,5 @@ ul.addEventListener('click', (e) => {
             button.textContent = 'edit';
     }
     }
+});
 });
