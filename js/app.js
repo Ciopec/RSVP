@@ -58,10 +58,28 @@ function createLi(text) {
 
 form.addEventListener('submit',(e) => {
     e.preventDefault();
-    const text = input.value;
-    input.value = '';
-    const li = createLi(text);
-    ul.appendChild(li);
+
+    function isListed(){
+        let isListed = false;
+        const invitees = ul.children;
+        for(let i =0; i<invitees.length; i++) {
+            const span = invitees[i].querySelector('span');
+            if(span.textContent === input.value)
+                isListed = true;
+        }
+        return isListed;
+    }
+
+    if(input.value === ''){
+        alert('Please type a name!');
+    } 
+        else if (isListed()) alert('Invitee already added!');
+            else {
+                const text = input.value;
+                input.value = '';
+                const li = createLi(text);
+                ul.appendChild(li);
+            }
 });
 
 ul.addEventListener('change', (e) => {
